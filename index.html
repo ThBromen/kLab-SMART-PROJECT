@@ -12,48 +12,87 @@
   <div class="container">
     <h1>💰 Expense Tracker</h1>
 
-    <!-- Form to Add Expense -->
-    <form id="expense-form">
-      <input type="text" id="description" placeholder="Description" required>
-      <input type="number" id="amount" placeholder="Amount" required>
-      <select id="category" required>
-        <option value="">Select Category</option>
-        <option value="Food">Food</option>
-        <option value="Rent">Rent</option>
-        <option value="Travel">Travel</option>
-        <option value="Shopping">Shopping</option>
-        <option value="Other">Other</option>
-      </select>
-      <select id="type" required>
-        <option value="Expense">Expense</option>
-        <option value="Income">Income</option>
-      </select>
-      <input type="date" id="date" required>
-      <button type="submit">Add</button>
-    </form>
-
-    <!-- Filter -->
-    <div class="filter">
-      <label for="filter-category">Filter by Category:</label>
-      <select id="filter-category">
-        <option value="All">All</option>
-        <option value="Food">Food</option>
-        <option value="Rent">Rent</option>
-        <option value="Travel">Travel</option>
-        <option value="Shopping">Shopping</option>
-        <option value="Other">Other</option>
-      </select>
+    <!-- Navigation Menu -->
+    <div class="nav-menu">
+      <button class="nav-btn active" data-section="add-expense">📝 Add Expense</button>
+      <button class="nav-btn" data-section="view-expenses">📊 View Expenses</button>
+      <button class="nav-btn" data-section="statistics">📈 Statistics</button>
     </div>
 
-    <!-- Expense List -->
-    <h2>Transactions</h2>
-    <ul id="expense-list"></ul>
+    <!-- Add Expense Section -->
+    <div class="content-section active" id="add-expense">
+      <h2>Add New Transaction</h2>
+      <form id="expense-form">
+        <input type="text" id="description" placeholder="Description" required>
+        <input type="number" id="amount" placeholder="Amount" required>
+        <select id="category" required>
+          <option value="">Select Category</option>
+          <option value="Food">Food</option>
+          <option value="Rent">Rent</option>
+          <option value="Travel">Travel</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Other">Other</option>
+        </select>
+        <select id="type" required>
+          <option value="Expense">Expense</option>
+          <option value="Income">Income</option>
+        </select>
+        <input type="date" id="date" required>
+        <button type="submit">Add</button>
+      </form>
+    </div>
 
-    <!-- Total -->
-    <h3>Total Balance: <span id="total">0</span> RWF</h3>
+    <!-- View Expenses Section -->
+    <div class="content-section" id="view-expenses">
+      <h2>Transactions</h2>
+      
+      <!-- Filter -->
+      <div class="filter">
+        <label for="filter-category">Filter by Category:</label>
+        <select id="filter-category">
+          <option value="All">All</option>
+          <option value="Food">Food</option>
+          <option value="Rent">Rent</option>
+          <option value="Travel">Travel</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
 
-    <!-- Chart -->
-    <canvas id="expenseChart" width="400" height="200"></canvas>
+      <!-- Expense List -->
+      <ul id="expense-list"></ul>
+
+      <!-- Total -->
+      <h3>Total Balance: <span id="total">0</span> RWF</h3>
+    </div>
+
+    <!-- Statistics Section -->
+    <div class="content-section" id="statistics">
+      <h2>Statistics</h2>
+      
+      <!-- Statistics Summary -->
+      <div class="stats-summary">
+        <div class="stat-item">
+          <h4>Total Income</h4>
+          <span id="total-income">0 RWF</span>
+        </div>
+        <div class="stat-item">
+          <h4>Total Expenses</h4>
+          <span id="total-expenses">0 RWF</span>
+        </div>
+        <div class="stat-item">
+          <h4>Net Balance</h4>
+          <span id="net-balance">0 RWF</span>
+        </div>
+        <div class="stat-item">
+          <h4>Total Transactions</h4>
+          <span id="total-transactions">0</span>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <canvas id="expenseChart" width="400" height="200"></canvas>
+    </div>
   </div>
 
   <script src="script.js"></script>

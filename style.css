@@ -27,6 +27,54 @@ h1, h2, h3 {
   color: #333;
 }
 
+/* Navigation Menu Styles */
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.nav-btn {
+  background: #e9ecef;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  color: #495057;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.nav-btn:hover {
+  background: #dee2e6;
+  transform: translateY(-1px);
+}
+
+.nav-btn.active {
+  background: #007bff;
+  color: white;
+}
+
+/* Content Sections */
+.content-section {
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -60,6 +108,13 @@ form button:hover {
   text-align: center;
 }
 
+.filter select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-left: 10px;
+}
+
 #expense-list {
   list-style: none;
   max-height: 200px;
@@ -90,4 +145,108 @@ form button:hover {
   border-radius: 4px;
   cursor: pointer;
   padding: 4px 8px;
+}
+
+/* Statistics Styles */
+.stats-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  border-left: 5px solid #007bff;
+}
+
+.stat-item h4 {
+  color: #495057;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.stat-item span {
+  color: #333;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.stat-item:nth-child(1) {
+  border-left-color: #28a745;
+}
+
+.stat-item:nth-child(1) span {
+  color: #28a745;
+}
+
+.stat-item:nth-child(2) {
+  border-left-color: #dc3545;
+}
+
+.stat-item:nth-child(2) span {
+  color: #dc3545;
+}
+
+.stat-item:nth-child(3) {
+  border-left-color: #6f42c1;
+}
+
+.stat-item:nth-child(3) span {
+  color: #6f42c1;
+}
+
+.stat-item:nth-child(4) {
+  border-left-color: #fd7e14;
+}
+
+.stat-item:nth-child(4) span {
+  color: #fd7e14;
+}
+
+#expenseChart {
+  width: 100% !important;
+  max-width: 400px;
+  height: 300px !important;
+  margin: 20px auto;
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .nav-btn {
+    width: 100%;
+  }
+
+  form input, form select, form button {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  form button {
+    width: 70%;
+    margin-left: 15%;
+  }
+
+  #expense-list {
+    width: 95%;
+    margin-left: 2.5%;
+  }
+
+  .stats-summary {
+    grid-template-columns: 1fr;
+  }
 }
